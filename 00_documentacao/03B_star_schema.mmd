@@ -1,0 +1,36 @@
+flowchart TB
+    classDef fact fill:#f8d7da,stroke:#842029,stroke-width:3px,color:#111;
+    classDef dim fill:#d1e7dd,stroke:#0f5132,stroke-width:2px,color:#111;
+    classDef note fill:#fff3cd,stroke:#664d03,stroke-width:1px,color:#111;
+
+    subgraph DW["data_warehouse - Star Schema"]
+        FT1["fato_vendas<br/>PK id<br/>FK id_cliente<br/>FK id_vendedor<br/>FK id_forma_pagamento<br/>FK id_data_venda<br/>Medida: valor<br/>Grao: nota fiscal"]
+        FT2["fato_vendas_detalhes<br/>PK id<br/>FK id_produto<br/>FK id_cliente<br/>FK id_vendedor<br/>FK id_tempo<br/>Medidas: quantidade, valor_venda_real, valor_unitario, valor_custo<br/>Grao: item da nota fiscal"]
+
+        DC["dim_cliente<br/>PK id<br/>nome, cidade, estado"]
+        DP["dim_produto<br/>PK id<br/>produto, categoria"]
+        DT["dim_tempo<br/>PK id<br/>data, ano, mes, dia, dia_da_semana, mes_extenso"]
+        DV["dim_vendedor<br/>PK id<br/>nome"]
+        DFP["dim_forma_pagamento<br/>PK id<br/>descricao"]
+    end
+
+    DC -->|1:N cliente| FT1
+    DV -->|1:N vendedor| FT1
+    DFP -->|1:N forma pagamento| FT1
+    DT -->|1:N data venda| FT1
+
+    DC -->|1:N cliente| FT2
+    DP -->|1:N produto| FT2
+    DV -->|1:N vendedor| FT2
+    DT -->|1:N tempo| FT2
+
+    FT1 -. "mesma nota fiscal via numero_nf" .- FT2
+
+    NOTE1["Cuidado: fato_vendas esta no nivel de nota fiscal.<br/>fato_vendas_detalhes esta no nivel de item.<br/>Nao somar medidas das duas fatos sem controlar a granularidade."]
+
+    NOTE1 --- FT1
+    NOTE1 --- FT2
+
+    class FT1,FT2 fact;
+    class DC,DP,DT,DV,DFP dim;
+    class NOTE1 note;

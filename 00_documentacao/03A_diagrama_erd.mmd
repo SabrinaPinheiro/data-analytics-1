@@ -1,0 +1,204 @@
+erDiagram
+    GERAL_ESTADO ||--o{ GERAL_CIDADE : possui
+    GERAL_CIDADE ||--o{ GERAL_BAIRRO : possui
+    GERAL_BAIRRO ||--o{ GERAL_ENDERECO : localiza
+    GERAL_PESSOA ||--o{ GERAL_ENDERECO : possui
+    GERAL_PESSOA ||--o{ GERAL_CONTATO : possui
+    GERAL_TIPO_CONTATO ||--o{ GERAL_CONTATO : classifica
+    GERAL_PESSOA ||--o| GERAL_PESSOA_FISICA : especializa
+    GERAL_PESSOA ||--o| GERAL_PESSOA_JURIDICA : especializa
+    GERAL_PESSOA ||--o{ GERAL_RESPONSAVEL_JURIDICO : responsavel_pf
+    GERAL_PESSOA ||--o{ GERAL_RESPONSAVEL_JURIDICO : empresa_pj
+
+    GERAL_PESSOA ||--o{ VENDAS_NOTA_FISCAL : cliente
+    GERAL_PESSOA ||--o{ VENDAS_NOTA_FISCAL : vendedor
+    GERAL_PESSOA ||--o{ VENDAS_PRODUTO : fornecedor
+    VENDAS_CATEGORIA ||--o{ VENDAS_PRODUTO : classifica
+    VENDAS_FORMA_PAGAMENTO ||--o{ VENDAS_NOTA_FISCAL : paga
+    VENDAS_NOTA_FISCAL ||--o{ VENDAS_ITEM_NOTA_FISCAL : contem
+    VENDAS_PRODUTO ||--o{ VENDAS_ITEM_NOTA_FISCAL : vendido_em
+
+    VENDAS_FORMA_PAGAMENTO ||..o{ STAGE_FORMA_PAGAMENTO : alimenta
+    VENDAS_NOTA_FISCAL ||..o{ STAGE_NOTA_FISCAL : alimenta
+    GERAL_PESSOA_FISICA ||..o{ STAGE_PESSOA_FISICA : alimenta
+    GERAL_PESSOA_JURIDICA ||..o{ STAGE_PESSOA_JURIDICA : alimenta
+
+    GERAL_PESSOA ||..o{ DW_DIM_CLIENTE : transforma
+    VENDAS_PRODUTO ||..o{ DW_DIM_PRODUTO : transforma
+    GERAL_PESSOA ||..o{ DW_DIM_VENDEDOR : transforma
+    VENDAS_FORMA_PAGAMENTO ||..o{ DW_DIM_FORMA_PAGAMENTO : transforma
+    VENDAS_NOTA_FISCAL ||..o{ DW_FATO_VENDAS : transforma
+    VENDAS_ITEM_NOTA_FISCAL ||..o{ DW_FATO_VENDAS_DETALHES : transforma
+
+    DW_DIM_CLIENTE ||--o{ DW_FATO_VENDAS : analisa
+    DW_DIM_VENDEDOR ||--o{ DW_FATO_VENDAS : analisa
+    DW_DIM_FORMA_PAGAMENTO ||--o{ DW_FATO_VENDAS : analisa
+    DW_DIM_TEMPO ||--o{ DW_FATO_VENDAS : analisa
+
+    DW_DIM_CLIENTE ||--o{ DW_FATO_VENDAS_DETALHES : analisa
+    DW_DIM_VENDEDOR ||--o{ DW_FATO_VENDAS_DETALHES : analisa
+    DW_DIM_PRODUTO ||--o{ DW_FATO_VENDAS_DETALHES : analisa
+    DW_DIM_TEMPO ||--o{ DW_FATO_VENDAS_DETALHES : analisa
+
+    GERAL_PESSOA {
+        int id PK
+        timestamptz data_cadastro
+    }
+    GERAL_PESSOA_FISICA {
+        int id PK,FK
+        text nome
+        text cpf UK
+        timestamptz nascimento
+    }
+    GERAL_PESSOA_JURIDICA {
+        int id PK,FK
+        text razao_social
+        text cnpj UK
+    }
+    GERAL_RESPONSAVEL_JURIDICO {
+        int id_pessoa_fisica PK,FK
+        int id_pessoa_juridica PK,FK
+    }
+    GERAL_ESTADO {
+        int id PK
+        text sigla
+        text descricao
+    }
+    GERAL_CIDADE {
+        int id PK
+        int id_estado FK
+        text descricao
+    }
+    GERAL_BAIRRO {
+        int id PK
+        int id_cidade FK
+        text descricao
+    }
+    GERAL_ENDERECO {
+        int id PK
+        int id_pessoa FK
+        int id_bairro FK
+        text rua
+        text numero
+        text cep
+    }
+    GERAL_TIPO_CONTATO {
+        int id PK
+        text descricao
+        text sigla
+    }
+    GERAL_CONTATO {
+        int id PK
+        int id_tipo_contato FK
+        int id_pessoa FK
+        text valor
+        boolean principal
+    }
+
+    VENDAS_CATEGORIA {
+        int id PK
+        text descricao
+    }
+    VENDAS_FORMA_PAGAMENTO {
+        int id PK
+        text descricao
+    }
+    VENDAS_PRODUTO {
+        int id PK
+        int id_fornecedor FK
+        int id_categoria FK
+        text nome
+        numeric valor_venda
+        numeric valor_custo
+    }
+    VENDAS_NOTA_FISCAL {
+        int id PK
+        int id_vendedor FK
+        int id_cliente FK
+        int id_forma_pagto FK
+        timestamptz data_venda
+        text numero_nf
+        numeric valor
+    }
+    VENDAS_ITEM_NOTA_FISCAL {
+        int id PK
+        int id_produto FK
+        int id_nota_fiscal FK
+        int quantidade
+        numeric valor_venda_real
+        numeric valor_unitario
+    }
+
+    STAGE_FORMA_PAGAMENTO {
+        int id PK
+        text descricao
+    }
+    STAGE_NOTA_FISCAL {
+        int id PK
+        int id_vendedor
+        int id_cliente
+        int id_forma_pagto
+        timestamptz data_venda
+        text numero_nf
+        numeric valor
+    }
+    STAGE_PESSOA_FISICA {
+        int id PK
+        text nome
+    }
+    STAGE_PESSOA_JURIDICA {
+        int id PK
+        text razao_social
+    }
+
+    DW_DIM_CLIENTE {
+        int id PK
+        text nome
+        text cidade
+        text estado
+    }
+    DW_DIM_PRODUTO {
+        int id PK
+        text produto
+        text categoria
+    }
+    DW_DIM_TEMPO {
+        int id PK
+        date data
+        int ano
+        int mes
+        int dia
+        text dia_da_semana
+        text mes_extenso
+    }
+    DW_DIM_VENDEDOR {
+        int id PK
+        text nome
+    }
+    DW_DIM_FORMA_PAGAMENTO {
+        int id PK
+        text descricao
+    }
+    DW_FATO_VENDAS {
+        int id PK
+        int id_cliente FK
+        int id_vendedor FK
+        int id_forma_pagamento FK
+        int id_data_venda FK
+        text numero_nf
+        numeric valor
+    }
+    DW_FATO_VENDAS_DETALHES {
+        int id PK
+        int id_produto FK
+        int id_cliente FK
+        int id_vendedor FK
+        int id_tempo FK
+        int quantidade
+        numeric valor_venda_real
+        numeric valor_unitario
+        numeric valor_venda
+        numeric valor_custo
+        numeric valor_nota_fiscal
+        text numero_nf
+    }

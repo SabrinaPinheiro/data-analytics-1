@@ -141,6 +141,11 @@ O `data_warehouse` possui FKs validadas entre fatos e dimensoes, formando um des
 
 O diagrama abaixo mostra as entidades mais importantes e os relacionamentos restaurados. As tabelas de `stage` aparecem como camada intermediaria sem FKs formais.
 
+Arquivos externos do diagrama:
+
+- [03A_diagrama_erd.mmd](03A_diagrama_erd.mmd)
+- [03A_diagrama_erd.png](03A_diagrama_erd.png)
+
 ```mermaid
 erDiagram
     GERAL_ESTADO ||--o{ GERAL_CIDADE : possui

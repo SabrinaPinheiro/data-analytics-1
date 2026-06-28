@@ -76,6 +76,10 @@ data-analytics-1/
 │   ├── 01_diagnostico_importacao.md
 │   ├── 02_validacao_restore.md
 │   ├── 03_inventario_banco.md
+│   ├── 03A_diagrama_erd.mmd
+│   ├── 03A_diagrama_erd.png
+│   ├── 03B_star_schema.mmd
+│   ├── 03B_star_schema.png
 │   ├── 04_modelo_relacional.md
 │   ├── 05_analise_modelo_dimensional.md
 │   ├── 06_objetivos_analiticos.md
@@ -101,6 +105,20 @@ data-analytics-1/
 │
 └── README.md
 ```
+
+---
+
+## Diagramas
+
+* [Diagrama ER](00_documentacao/03A_diagrama_erd.png)
+* [Star Schema](00_documentacao/03B_star_schema.png)
+* [Modelo Relacional](00_documentacao/04_modelo_relacional.md)
+* [Analise do Modelo Dimensional](00_documentacao/05_analise_modelo_dimensional.md)
+
+Fontes Mermaid:
+
+* [Diagrama ER (.mmd)](00_documentacao/03A_diagrama_erd.mmd)
+* [Star Schema (.mmd)](00_documentacao/03B_star_schema.mmd)
 
 ---
 
