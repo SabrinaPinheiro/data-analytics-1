@@ -73,9 +73,14 @@ Base de Dados Corporativa
 data-analytics-1/
 │
 ├── 00_documentacao/
-│   ├── inventario.md
-│   ├── modelo_relacional.png
-│   ├── modelo_dw.png
+│   ├── 01_diagnostico_importacao.md
+│   ├── 02_validacao_restore.md
+│   ├── 03_inventario_banco.md
+│   ├── 04_modelo_relacional.md
+│   ├── 05_analise_modelo_dimensional.md
+│   ├── 06_objetivos_analiticos.md
+│   ├── 07_datamarts_metricas.md
+│   ├── 08_powerbi_storytelling.md
 │
 ├── 01_origem/
 │   └── Base de dados original
