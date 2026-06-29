@@ -84,8 +84,9 @@ data-analytics-1/
 │   ├── 05_analise_modelo_dimensional.md
 │   ├── 06_objetivos_analiticos.md
 │   ├── 07_validacao_kpis.md
-│   ├── 08_datamarts_metricas.md
-│   ├── 09_powerbi_storytelling.md
+│   ├── 08_dicionario_metricas.md
+│   ├── 09_datamarts_metricas.md
+│   ├── 10_powerbi_storytelling.md
 │
 ├── 01_origem/
 │   └── Base de dados original
@@ -117,6 +118,7 @@ data-analytics-1/
 * [Analise do Modelo Dimensional](00_documentacao/05_analise_modelo_dimensional.md)
 * [Objetivos Analiticos e KPIs](00_documentacao/06_objetivos_analiticos.md)
 * [Validação das Métricas e KPIs Analíticos](00_documentacao/07_validacao_kpis.md)
+* [Dicionário Oficial de Métricas Analíticas](00_documentacao/08_dicionario_metricas.md)
 
 Fontes Mermaid:
 
