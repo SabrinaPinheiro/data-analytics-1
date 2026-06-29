@@ -13,9 +13,11 @@
 
 Este projeto foi desenvolvido como requisito de avaliação da **Unidade 01 – Banco de Dados** da Formação **Data Analytics** da Digital College.
 
-O trabalho consiste na construção de uma solução analítica baseada em conceitos de **Data Warehouse**, **Modelagem Dimensional**, **Data Marts** e **Business Intelligence**, utilizando uma base de dados corporativa fornecida pela instituição.
+O trabalho consiste na construção de uma solução analítica baseada em conceitos de **Data Warehouse**, **Modelagem Dimensional**, **Métricas Analíticas** e **Business Intelligence**, utilizando uma base de dados corporativa fornecida pela instituição.
 
 Todo o ambiente foi implementado utilizando **Supabase (PostgreSQL)** como banco de dados e **Power BI** para construção dos dashboards analíticos.
+
+A documentação técnica detalhada permanece no repositório como apoio e evidência do processo de análise, importação, validação, inventário, modelagem e definição de métricas. A entrega acadêmica final será concentrada no dashboard Power BI e na apresentação final com storytelling.
 
 ---
 
@@ -25,7 +27,7 @@ Conforme especificação da disciplina, este projeto contempla as seguintes ativ
 
 * Criar e popular um ou mais modelos dimensionais com foco no esquema financeiro;
 * Definir os objetivos analíticos do(s) modelo(s);
-* Construir Data Marts para suportar as análises;
+* Utilizar o Data Warehouse para suportar as análises;
 * Elaborar métricas, indicadores e gráficos;
 * Desenvolver um Dashboard em Power BI;
 * Apresentar os resultados utilizando técnicas de Data Storytelling.
@@ -42,9 +44,6 @@ Base de Dados Corporativa
             │
             ▼
      Data Warehouse
-            │
-            ▼
-        Data Marts
             │
             ▼
        Power BI Desktop
@@ -85,8 +84,7 @@ data-analytics-1/
 │   ├── 06_objetivos_analiticos.md
 │   ├── 07_validacao_kpis.md
 │   ├── 08_dicionario_metricas.md
-│   ├── 09_datamarts_metricas.md
-│   ├── 10_powerbi_storytelling.md
+│   └── 09_modelagem_power_bi.md
 │
 ├── 01_origem/
 │   └── Base de dados original
@@ -97,7 +95,7 @@ data-analytics-1/
 │   └── Tabela Fato
 │
 ├── 03_datamarts/
-│   └── Data Marts analíticos
+│   └── Reservado para evoluções futuras
 │
 ├── 04_powerbi/
 │   └── Dashboard (.pbix)
@@ -119,6 +117,7 @@ data-analytics-1/
 * [Objetivos Analiticos e KPIs](00_documentacao/06_objetivos_analiticos.md)
 * [Validação das Métricas e KPIs Analíticos](00_documentacao/07_validacao_kpis.md)
 * [Dicionário Oficial de Métricas Analíticas](00_documentacao/08_dicionario_metricas.md)
+* [Modelagem do Dashboard Power BI](00_documentacao/09_modelagem_power_bi.md)
 
 Fontes Mermaid:
 
@@ -135,9 +134,8 @@ Fontes Mermaid:
 * Definição dos objetivos analíticos.
 * Modelagem Dimensional (Star Schema).
 * Criação do Data Warehouse.
-* Construção dos Data Marts.
-* Desenvolvimento das consultas SQL.
 * Definição de métricas e indicadores.
+* Planejamento simples do dashboard Power BI.
 * Desenvolvimento do Dashboard em Power BI.
 * Construção do Data Storytelling.
 * Elaboração da apresentação final.
@@ -147,7 +145,7 @@ Fontes Mermaid:
 # Boas Práticas Aplicadas
 
 * Organização dos scripts por etapa do projeto.
-* Separação entre dados de origem, Data Warehouse e Data Marts.
+* Separação entre dados de origem, Data Warehouse e entrega em Power BI.
 * Utilização de nomenclatura padronizada para objetos do banco de dados.
 * Documentação técnica do processo de desenvolvimento.
 * Estrutura preparada para versionamento em Git.
@@ -157,6 +155,8 @@ Fontes Mermaid:
 # Observações
 
 Embora desenvolvido para fins acadêmicos, este projeto foi estruturado seguindo práticas utilizadas em projetos de Engenharia de Dados, permitindo sua utilização como parte do portfólio técnico da autora.
+
+A partir da documentação `09_modelagem_power_bi.md`, o projeto deixa de expandir a documentação técnica e passa para a etapa prática: construção do dashboard no Power BI e preparação da apresentação final.
 
 ---
 
