@@ -114,6 +114,7 @@ data-analytics-1/
 * [Star Schema](00_documentacao/03B_star_schema.png)
 * [Modelo Relacional](00_documentacao/04_modelo_relacional.md)
 * [Analise do Modelo Dimensional](00_documentacao/05_analise_modelo_dimensional.md)
+* [Objetivos Analiticos e KPIs](00_documentacao/06_objetivos_analiticos.md)
 
 Fontes Mermaid:
 
