@@ -84,7 +84,10 @@ data-analytics-1/
 │   ├── 06_objetivos_analiticos.md
 │   ├── 07_validacao_kpis.md
 │   ├── 08_dicionario_metricas.md
-│   └── 09_modelagem_power_bi.md
+│   ├── 09_modelagem_power_bi.md
+│   ├── 10_modelo_dados_power_bi.md
+│   ├── 11_medidas_dax.md
+│   └── 12_dashboard_final.md
 │
 ├── 01_origem/
 │   └── Base de dados original
@@ -118,6 +121,9 @@ data-analytics-1/
 * [Validação das Métricas e KPIs Analíticos](00_documentacao/07_validacao_kpis.md)
 * [Dicionário Oficial de Métricas Analíticas](00_documentacao/08_dicionario_metricas.md)
 * [Modelagem do Dashboard Power BI](00_documentacao/09_modelagem_power_bi.md)
+* [Modelo de Dados no Power BI](00_documentacao/10_modelo_dados_power_bi.md)
+* [Medidas DAX](00_documentacao/11_medidas_dax.md)
+* [Dashboard Final](00_documentacao/12_dashboard_final.md)
 
 Fontes Mermaid:
 
@@ -156,7 +162,7 @@ Fontes Mermaid:
 
 Embora desenvolvido para fins acadêmicos, este projeto foi estruturado seguindo práticas utilizadas em projetos de Engenharia de Dados, permitindo sua utilização como parte do portfólio técnico da autora.
 
-A partir da documentação `09_modelagem_power_bi.md`, o projeto deixa de expandir a documentação técnica e passa para a etapa prática: construção do dashboard no Power BI e preparação da apresentação final.
+A partir da documentação `09_modelagem_power_bi.md`, o projeto passa para uma documentação mais prática e objetiva, focada no modelo do Power BI, nas medidas DAX, no dashboard final e na preparação da apresentação.
 
 ---
 
